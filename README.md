@@ -1,1 +1,1 @@
-![alt text](http://github.com/lordliquid/react-animotion/images/screenShot.png)
+![alt text](https://github.com/lordliquid/react-animotion/blob/master/images/screenShot.png)
