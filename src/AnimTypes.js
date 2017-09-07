@@ -1,5 +1,4 @@
 export function tween(start, end) {
-
   if (start > end) {
     start = start - 1;
   }

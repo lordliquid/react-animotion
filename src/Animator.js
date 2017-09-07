@@ -1,6 +1,5 @@
-import React from "react";
-import * as styles from "./Styles";
-
+import React from 'react';
+import * as styles from './Styles';
 
 export default class Animator extends React.Component {
   constructor() {
@@ -10,7 +9,7 @@ export default class Animator extends React.Component {
       animCount: 0,
       result: 0,
       start: 0,
-      end: 0
+      end: 0,
     };
 
     this.animationEnd = this.animationEnd.bind(this);
@@ -23,7 +22,7 @@ export default class Animator extends React.Component {
     const { start, end } = this.props;
     return this.setState({
       start: this.state.start === end ? end : start,
-      end: this.state.end === start ? end : start
+      end: this.state.end === start ? end : start,
     });
   }
 
@@ -59,7 +58,7 @@ export default class Animator extends React.Component {
 
     this.setState({
       start: animate(start, end),
-      result: start
+      result: start,
     });
 
     if (start === end) {
@@ -68,11 +67,10 @@ export default class Animator extends React.Component {
   }
 
   componentDidMount() {
-    const { end, start, delay } = this.props;
+    const { end, start } = this.props;
 
     this.setState({ start, end }, () => {
-      // smooth out animation using a time scale
-        this.intervalId = setInterval(this.animate, 0);
+      this.intervalId = setInterval(this.animate, 0);
     });
   }
 
@@ -92,6 +90,10 @@ export default class Animator extends React.Component {
         </div>
       );
     }
-    return <div>{children({ ...this.state, ...this.props })}</div>;
+    return (
+      <div style={styles.container}>
+        {children({ ...this.state, ...this.props })}
+      </div>
+    );
   }
 }
